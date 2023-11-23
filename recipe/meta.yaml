@@ -15,7 +15,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -34,7 +34,7 @@ test:
 about:
   home: https://github.com/gruns/orderedmultidict
   license_file: LICENSE.md
-  license: PUBLIC-DOMAIN
+  license: Unlicense
   summary: 'Ordered Multivalue Dictionary - omdict.'
   dev_url: https://github.com/gruns/orderedmultidict
   doc_url: https://github.com/gruns/orderedmultidict
@@ -42,3 +42,4 @@ about:
 extra:
   recipe-maintainers:
     - pmlandwehr
+    - fhoehle
