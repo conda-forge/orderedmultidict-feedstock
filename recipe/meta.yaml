@@ -1,44 +1,44 @@
 {% set name = "orderedmultidict" %}
 {% set version = "1.0.1" %}
-{% set bundle = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash = "04070bbb5e87291cc9bfa51df413677faf2141c73c61d2a5f7b26bea3cd882ad" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ bundle }}
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/orderedmultidict-{{ version }}.tar.gz
+  sha256: 04070bbb5e87291cc9bfa51df413677faf2141c73c61d2a5f7b26bea3cd882ad
 
 build:
   noarch: python
-  number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
 
 requirements:
   host:
-    - python
+    - python >=3.7
     - pip
-
   run:
-    - python
+    - python >=3.7
     - six >=1.8.0
 
 test:
   imports:
     - orderedmultidict
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/gruns/orderedmultidict
-  license_file: LICENSE.md
-  license: PUBLIC-DOMAIN
   summary: 'Ordered Multivalue Dictionary - omdict.'
+  license: Unlicense
+  license_file: LICENSE.md
   dev_url: https://github.com/gruns/orderedmultidict
   doc_url: https://github.com/gruns/orderedmultidict
 
 extra:
   recipe-maintainers:
     - pmlandwehr
+    - fhoehle
