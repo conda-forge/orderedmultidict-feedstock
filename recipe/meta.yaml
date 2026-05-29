@@ -1,5 +1,5 @@
 {% set name = "orderedmultidict" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/orderedmultidict-{{ version }}.tar.gz
-  sha256: 04070bbb5e87291cc9bfa51df413677faf2141c73c61d2a5f7b26bea3cd882ad
+  sha256: 16a7ae8432e02cc987d2d6d5af2df5938258f87c870675c73ee77a0920e6f4a6
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 2
+  number: 0
 
 requirements:
   host:
